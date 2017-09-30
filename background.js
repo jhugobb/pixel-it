@@ -5,7 +5,6 @@ const PIXELATE = "content_scripts/pixelate.js"
 const TITLE_APPLY = "Pixel it!";
 const TITLE_REMOVE = "Go back!";
 const APPLICABLE_PROTOCOLS = ["http:", "https:"];
-var isit = false;
 
 function init(tab) {
   toggleCSS(tab);
@@ -22,13 +21,11 @@ function toggleCSS(tab) {
     if (title === TITLE_APPLY) {
       browser.pageAction.setIcon({tabId: tab.id, path: "icons/on.svg"});
       browser.pageAction.setTitle({tabId: tab.id, title: TITLE_REMOVE});
-      isit = true;
       browser.tabs.insertCSS({file: CSS});
       browser.tabs.executeScript({file: IMPORTS});
     } else {
       browser.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
       browser.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
-      isit = false;
       browser.tabs.removeCSS({file: CSS});
     }
   }
@@ -60,15 +57,9 @@ Only operates on tabs whose URL's protocol is applicable.
 */
 function initializePageAction(tab) {
   if (protocolIsApplicable(tab.url)) {
-    if (!isit) {
       browser.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
       browser.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
       browser.pageAction.show(tab.id);
-  } else {
-      browser.pageAction.setIcon({tabId: tab.id, path: "icons/on.svg"});
-      browser.pageAction.setTitle({tabId: tab.id, title: TITLE_REMOVE});
-      browser.pageAction.show(tab.id);
-    }
   }
 }
 
