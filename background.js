@@ -1,9 +1,17 @@
 const CSS = "content_scripts/stylesheet.css";
 const IMPORTS = "content_scripts/htmlImports.js"
+const PIXELIZER = "content_scripts/pixelizer.js"
+const PIXELATE = "content_scripts/pixelate.js"
 const TITLE_APPLY = "Pixel it!";
 const TITLE_REMOVE = "Go back!";
 const APPLICABLE_PROTOCOLS = ["http:", "https:"];
 var isit = false;
+
+function init(tab) {
+  toggleCSS(tab);
+  togglePixelization(tab);
+}
+
 /*
 Toggle CSS: based on the current title, insert or remove the CSS.
 Update the page action's title and icon to reflect its state.
@@ -27,6 +35,14 @@ function toggleCSS(tab) {
 
   var gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
   gettingTitle.then(gotTitle);
+}
+
+/*
+Converts every image on the page with a 8-bit like canvas
+*/
+function togglePixelization(tab) {
+  browser.tabs.executeScript({file: PIXELIZER })
+  browser.tabs.executeScript({file: PIXELATE });
 }
 
 /*
@@ -76,4 +92,4 @@ browser.tabs.onUpdated.addListener((id, changeInfo, tab) => {
 /*
 Toggle CSS when the page action is clicked.
 */
-browser.pageAction.onClicked.addListener(toggleCSS);
+browser.pageAction.onClicked.addListener(init);
