@@ -1,4 +1,5 @@
 # Pixel-it
+![Google](/Screenshots/Moon.png)
 
 Think about retro fonts, about the 8-bit images, the journey to the past, the games you love and the feeling they give you. Welcome, to the web extension that makes all of that with the click of a button. 
 
@@ -12,10 +13,14 @@ Its mainly Javascript. There is some css and html in it too, and some json as we
 
 ### Things to improve:
 - [x] Make it work
+- [ ] Video support (HTML5)
 - [ ] Support the user choosing the font
 - [ ] Be able to have various themes to choose from
-- [ ] Make it brew fresh coffee
+- [x] Make it serve ~coffee~ hot tea
 - [ ] Automize it to fetch my ever missing lost sock
+
+### Show me how it looks!
+[There you go](/Screenshots).
 
 ### Why open source? Why not win a quick buck with it?
 We believe that open code is the best code. This doesn't really escalate to a business, and even if it did, we are just a group of friends that enjoy developing and learning new things every day! So enjoy all you like this amazing extension we created.
