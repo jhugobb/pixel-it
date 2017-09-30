@@ -1,10 +1,10 @@
 # Pixel-it
 
-Think about retro fonts, about the 8-bit images, the journey to the past, the games you love and the feeling they give you. Welcome, to the firefox estension that makes all of that with the click of a button. 
+Think about retro fonts, about the 8-bit images, the journey to the past, the games you love and the feeling they give you. Welcome, to the web extension that makes all of that with the click of a button. 
 
 ### So how does it work?
 
-Its actually pretty simple considering what the average level of developing a firefox extension is. It uses the Mozilla API and suggestions in the [documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
+Its actually pretty simple considering what the average level of developing a web extension is. It uses the Mozilla API and suggestions in the [documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 #### What about the technology it uses?
 
